@@ -5,6 +5,9 @@ import com.joelkim.blackjackwinrate.exceptions.CardInfoIncorrectException;
 public class Card {
 	private int number;
 	private String suit;
+	private boolean reshuffle = false;
+	
+	public Card nextCard = null;
 	
 	public Card() throws CardInfoIncorrectException {
 		throw new CardInfoIncorrectException("Card number and suit is required param.");
@@ -17,5 +20,21 @@ public class Card {
 		
 		this.number = number;
 		this.suit = suit;
+	}
+	
+	public void setNextCardInDeck(Card nextCard) {
+		this.nextCard = nextCard;
+	}
+	
+	public void reshuffle() {
+		this.reshuffle = true;
+	}
+	
+	public int getNumber() {
+		return number;
+	}
+	
+	public String getSuit() {
+		return  suit;
 	}
 }
